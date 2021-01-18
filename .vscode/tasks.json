@@ -1,0 +1,35 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Koka",
+            "type": "shell",
+            "command": "koka ${relativeFile}",
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "Build Koka - Run With Arg",
+            "type": "shell",
+            "command": "koka",
+            "args": [
+                "${relativeFile}",
+                "--",
+                "${input:arg0}"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "type": "promptString",
+            "id": "arg0",
+            "description": "First commandline argument",
+            "default": ""
+        }
+    ]
+}
